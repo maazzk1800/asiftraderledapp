@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:asif_traders_ledapp/main.dart';
+import 'package:asiftraderledapp/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
