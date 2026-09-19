@@ -1,5 +1,5 @@
-name: project1ledger
-description: "A new Flutter project."
+name: asif_traders_ledapp
+description: "Asif Traders ledapp"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -36,6 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.8
   shared_preferences: ^2.5.5
   intl: ^0.20.3
+  file_picker: ^10.3.3
+  pdf: ^3.11.3
+  share_plus: ^12.0.1
+  image: ^4.5.4
+  path_provider: ^2.1.5
+  flutter_svg: ^2.2.1
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +59,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+
+  assets:
+    - assets/asif_traders_logo.svg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

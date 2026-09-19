@@ -1,6 +1,6 @@
 {
-    "name": "project1ledger",
-    "short_name": "project1ledger",
+    "name": "Asif Traders ledapp",
+    "short_name": "Asif Traders",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

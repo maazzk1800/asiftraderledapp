@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768">
+  <defs>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#eeeaff"/><stop offset=".48" stop-color="#f6f8ff"/><stop offset="1" stop-color="#e2fff6"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6555c8"/><stop offset=".48" stop-color="#bcecff"/><stop offset="1" stop-color="#42d59d"/>
+    </linearGradient>
+  </defs>
+  <rect x="48" y="42" width="672" height="672" rx="108" fill="url(#glass)" stroke="#fff" stroke-width="5"/>
+  <path d="M315 420L382 174l73 246h-39l-18-67h-39l-19 67zM365 321h24l-12-47z" fill="url(#mark)"/>
+  <path d="M194 395c48-58 125-91 222-96 82-4 137 17 156 50-39-18-87-20-140-9-93 19-164 62-220 102-30 21-51 9-18-47z" fill="url(#mark)"/>
+  <rect x="431" y="276" width="23" height="102" rx="11" fill="#45cfa0"/>
+  <rect x="466" y="251" width="23" height="127" rx="11" fill="#62dbaa"/>
+  <rect x="501" y="224" width="23" height="154" rx="11" fill="#7be5b8"/>
+  <text x="384" y="520" text-anchor="middle" fill="#4c496d" font-family="Georgia,serif" font-size="104" letter-spacing="8">ASIF</text>
+  <path d="M166 565h58M544 565h58" stroke="#a88cf0" stroke-width="5" stroke-linecap="round"/>
+  <text x="384" y="579" text-anchor="middle" fill="#3f405f" font-family="Georgia,serif" font-size="36" letter-spacing="12">TRADERS</text>
+</svg>
