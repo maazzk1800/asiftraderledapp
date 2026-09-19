@@ -1588,6 +1588,37 @@ class _LedgerAppState extends State<LedgerApp> {
     );
   }
 
+  Widget _ledgerTotalMetric(String label, double value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+            color: Colors.white70,
+            fontSize: 12,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 4),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: Text(
+            '$selectedCurrency ${value.toStringAsFixed(2)}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 17,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _summaryCard(String label, double value, Color color) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -1837,16 +1868,24 @@ class _LedgerAppState extends State<LedgerApp> {
 
   Widget _buildHomePage() {
     final visibleTransactions = filteredTransactions;
-    final visibleBalance = visibleTransactions.fold(
-      0.0,
-      (total, item) => total + item.signedAmount,
-    );
     final visibleCredit = visibleTransactions
         .where((item) => item.type == TransactionType.credit)
         .fold(0.0, (sum, item) => sum + item.amount);
     final visibleDebit = visibleTransactions
         .where((item) => item.type == TransactionType.debit)
         .fold(0.0, (sum, item) => sum + item.amount);
+    final visibleTotalAmount = visibleTransactions.fold(
+      0.0,
+      (total, item) => total + item.amount,
+    );
+    final visibleReceivedAmount = visibleTransactions.fold(
+      0.0,
+      (total, item) => total + item.receivedAmount,
+    );
+    final visiblePendingAmount = visibleTransactions.fold(
+      0.0,
+      (total, item) => total + item.pendingAmount,
+    );
     final availableCategories = ['All', ...allCategories];
     final activeCompany = selectedCompany;
     final accentPrimary = ledgerType == LedgerType.sales
@@ -1932,7 +1971,7 @@ class _LedgerAppState extends State<LedgerApp> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text(
-                          'Total Balance',
+                          'Ledger Summary',
                           style: TextStyle(color: Colors.white70, fontSize: 16),
                         ),
                         Container(
@@ -1954,14 +1993,28 @@ class _LedgerAppState extends State<LedgerApp> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 12),
-                    Text(
-                      '$selectedCurrency ${visibleBalance.toStringAsFixed(2)}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w800,
-                      ),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _ledgerTotalMetric(
+                            'Total Amount',
+                            visibleTotalAmount,
+                          ),
+                        ),
+                        Expanded(
+                          child: _ledgerTotalMetric(
+                            'Received',
+                            visibleReceivedAmount,
+                          ),
+                        ),
+                        Expanded(
+                          child: _ledgerTotalMetric(
+                            'Pending',
+                            visiblePendingAmount,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
